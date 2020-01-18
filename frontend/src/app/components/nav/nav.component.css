@@ -1,10 +1,41 @@
 nav
 {
   position: absolute;
-  width: 1920px;
-  height: 58px;
   left: 0px;
-  top: 2px;
+  /*top: 2px;*/
+
+  width: 100%;
+
+  background: #333;
+}
+
+nav .navBarButtons div
+{
+  display: inline-block;
+  float: right;
+
+  color: #fff;
+
+  padding-left: 5%;
+
+  line-height: 200%;
+}
+#logoNav
+{
+  display: inline-block;
+
+  background: red;
+  /*padding-right: 40%;*/
+}
+.navBarButtons
+{
+  padding-right: 4%;
+
+  font-size: 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+
 }
 
 /*nav button*/
