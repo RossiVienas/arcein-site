@@ -1,0 +1,23 @@
+nav
+{
+  position: absolute;
+  width: 1920px;
+  height: 58px;
+  left: 0px;
+  top: 2px;
+}
+
+/*nav button*/
+/*{*/
+/*  font-family: Roboto;*/
+/*  font-style: normal;*/
+/*  font-weight: bold;*/
+/*  font-size: 24px;*/
+/*  line-height: 0px;*/
+/*  !* identical to box height, or 0% *!*/
+
+/*  display: flex;*/
+/*  align-items: center;*/
+
+/*  color: #FFFFFF;*/
+/*}*/
