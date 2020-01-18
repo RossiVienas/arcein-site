@@ -24,6 +24,8 @@ nav .navBarButtons div
 {
   display: inline-block;
 
+  float: left;
+
   background: red;
   /*padding-right: 40%;*/
 }
@@ -36,6 +38,10 @@ nav .navBarButtons div
   font-style: normal;
   font-weight: bold;
 
+}
+nav .navBarButtons div:hover
+{
+  opacity: .7;
 }
 
 /*nav button*/
