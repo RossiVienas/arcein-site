@@ -74,33 +74,44 @@
 
 .logo
 {
-  width: 70px;
-  height: 70px;
+  height: 100%;
   background: red;
   float: left;
 }
 
+.menu
+{
+  float: right;
+}
+
 nav
 {
+  position: fixed;
   background: #333;
+  width: 100%;
 }
-nav ul {
-  float: right;
+nav ul
+{
+  width: 100%;
+  /*float: right;*/
   list-style: none;
   margin: 0;
   padding: 0;
 }
-nav a {
+nav a
+{
   display: block;
   text-decoration: none;
   outline: none;
   transition: .4s ease-in-out;
 }
-.topmenu {
+.topmenu
+{
   backface-visibility: hidden;
   background: #333;
 }
-.topmenu > li {
+.topmenu > li
+{
   display: inline-block;
   position: relative;
 }
