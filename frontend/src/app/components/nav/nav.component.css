@@ -2,7 +2,6 @@ nav
 {
   position: absolute;
   left: 0px;
-  /*top: 2px;*/
 
   width: 100%;
 
@@ -17,8 +16,13 @@ nav .navBarButtons div
   color: #fff;
 
   padding-left: 5%;
+  width: 7%;
 
   line-height: 200%;
+}
+nav .navBarButtons div div
+{
+  display: inline-block;
 }
 #logoNav
 {
@@ -27,13 +31,10 @@ nav .navBarButtons div
   float: left;
 
   background: red;
-  /*padding-right: 40%;*/
 }
 .navBarButtons
 {
-  padding-right: 4%;
-
-  font-size: 24px;
+  font-size: 18px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -44,17 +45,29 @@ nav .navBarButtons div:hover
   opacity: .7;
 }
 
-/*nav button*/
-/*{*/
-/*  font-family: Roboto;*/
-/*  font-style: normal;*/
-/*  font-weight: bold;*/
-/*  font-size: 24px;*/
-/*  line-height: 0px;*/
-/*  !* identical to box height, or 0% *!*/
+ /*Lists*/
+#lists
+{
+  position: fixed;
+  width: 100%;
+  height: 20%;
+  top: 48px;
+  background: black;
+}
+#lists div
+{
+  display: inline-block;
+  float: right;
 
-/*  display: flex;*/
-/*  align-items: center;*/
+  width: 7%;
 
-/*  color: #FFFFFF;*/
-/*}*/
+  color: #fff;
+
+  padding-left: 5%;
+
+  line-height: 200%;
+}
+#lists div
+{
+  font-size: 14px;
+}
