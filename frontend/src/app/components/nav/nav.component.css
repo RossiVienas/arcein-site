@@ -89,6 +89,7 @@ nav
   position: fixed;
   background: #333;
   width: 100%;
+  opacity: .7;
 }
 nav ul
 {
