@@ -8,6 +8,7 @@ import { GreetingComponent } from './components/greeting/greeting.component';
 import { NewsComponent } from './components/news/news.component';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { MonitoringOnlineComponent } from './components/monitoring-online/monitoring-online.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     GreetingComponent,
     NewsComponent,
     MonitoringComponent,
-    ContactsComponent
+    ContactsComponent,
+    MonitoringOnlineComponent
   ],
   imports: [
     BrowserModule,
