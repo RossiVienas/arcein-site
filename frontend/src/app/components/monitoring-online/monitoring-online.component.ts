@@ -8,24 +8,25 @@ import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@ang
 })
 export class MonitoringOnlineComponent implements OnInit, OnDestroy {
 
-  @Input() x              : number = 100;
-  @Input() y              : number = 100;
-  @Input() radius         : number = 90;
-  @Input() stroke         : number = 20;
+  @Input() x              : number = 500;
+  @Input() y              : number = 500;
+  @Input() radius         : number = 300;
+  @Input() stroke         : number = 50;
   @Input() startAngle     : number = -Math.PI/2;
   @Input() color          : string = "rgb(255, 0, 255)";
   @Input() backColor      : string = "rgb(255, 255, 255)";
-  @Input() fetchRate      : number = 1000;
+  @Input() fetchRate      : number = 3000;
   @Input() drawRate       : number = 15;
-  @Input() updatePerClock : number = 0.01; 
-  
+  @Input() updatePerClock : number = 0.02; 
+  @Input() accelParam     : number = 0.75;
+
   @ViewChild('canv', {static: true})
   private canvas      : ElementRef<HTMLCanvasElement>;
   private canvas2d    : CanvasRenderingContext2D;
-  private currentValue: number = 0.25;
+  private currentValue: number = 0;
   private fetchClock  : number;
   private drawClock   : number;
-  private targetValue : number = 0.25; 
+  private targetValue : number = 0; 
 
   constructor() {}
 
@@ -37,16 +38,13 @@ export class MonitoringOnlineComponent implements OnInit, OnDestroy {
 
   private updateValue() : void
   {
-    if(this.targetValue > this.currentValue)
-    {
-      if(this.targetValue - this.currentValue > this.updatePerClock) {this.currentValue += this.updatePerClock;}
-      else {this.currentValue = this.targetValue;}
-    }
-    else
-    {
-      if(this.currentValue - this.targetValue > this.updatePerClock) {this.currentValue -= this.updatePerClock;}
-      else {this.currentValue = this.targetValue;}
-    }
+    let diff : number = Math.pow(Math.abs(this.targetValue - this.currentValue), this.accelParam) * this.updatePerClock;
+      if(Math.abs(this.targetValue - this.currentValue) < diff) this.currentValue = this.targetValue;
+      else
+      {
+        if(this.targetValue > this.currentValue) this.currentValue += diff;
+        else this.currentValue -= diff;
+      }
   }
 
   private processBar = () =>
