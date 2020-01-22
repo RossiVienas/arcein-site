@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 
 @Component
 ({
@@ -6,43 +6,68 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './monitoring-online.component.html',
   styleUrls: ['./monitoring-online.component.css']
 })
-export class MonitoringOnlineComponent implements OnInit {
+export class MonitoringOnlineComponent implements OnInit, OnDestroy {
 
-  @Input() x         : number = 100;
-  @Input() y         : number = 100;
-  @Input() radius    : number = 100;
-  @Input() stroke    : number = 10;
-  @Input() startAngle: number = -Math.PI/2;
-  @Input() color     : string = "rgb(255, 0, 255)";
-  @Input() backColor : string = "rgb(255, 255, 255)";
+  @Input() x              : number = 100;
+  @Input() y              : number = 100;
+  @Input() radius         : number = 90;
+  @Input() stroke         : number = 20;
+  @Input() startAngle     : number = -Math.PI/2;
+  @Input() color          : string = "rgb(255, 0, 255)";
+  @Input() backColor      : string = "rgb(255, 255, 255)";
+  @Input() fetchRate      : number = 1000;
+  @Input() drawRate       : number = 15;
+  @Input() updatePerClock : number = 0.01; 
   
   @ViewChild('canv', {static: true})
   private canvas      : ElementRef<HTMLCanvasElement>;
   private canvas2d    : CanvasRenderingContext2D;
-  private currentValue: number = Math.PI / 2;
+  private currentValue: number = 0.25;
+  private fetchClock  : number;
+  private drawClock   : number;
+  private targetValue : number = 0.25; 
 
-//  TODO:
-//  targetValue : number; 
+  constructor() {}
 
-  constructor() 
+  private fetchData() : void
   {
+    //Fake request
+    this.targetValue = Math.random();
   }
 
-  drawValue(value: number) : void
+  private updateValue() : void
+  {
+    if(this.targetValue > this.currentValue)
+    {
+      if(this.targetValue - this.currentValue > this.updatePerClock) {this.currentValue += this.updatePerClock;}
+      else {this.currentValue = this.targetValue;}
+    }
+    else
+    {
+      if(this.currentValue - this.targetValue > this.updatePerClock) {this.currentValue -= this.updatePerClock;}
+      else {this.currentValue = this.targetValue;}
+    }
+  }
+
+  private processBar = () =>
+  {
+    this.updateValue();
+    this.drawValue();
+  }
+
+  private drawValue() : void
   {
     //Setting degree
-    value = Math.max(Math.min(1.0, value), 0);
-    this.currentValue = Math.PI * 2 * value + this.startAngle;
+    this.currentValue = Math.max(Math.min(1.0, this.currentValue), 0);
+    let degree : number = Math.PI * 2 * this.currentValue + this.startAngle;
 
     //Size
     this.canvas.nativeElement.width  = this.radius * 2 + this.stroke * 2;
     this.canvas.nativeElement.height = this.radius * 2 + this.stroke * 2;
     
     //Position
-    this.canvas.nativeElement.style.top = (this.y) + "px";
-    this.canvas.nativeElement.style.left = (this.x) + "px";
-    console.log(this.canvas.nativeElement.style.left);
-    console.log(this.canvas.nativeElement.style.top);
+    this.canvas.nativeElement.style.top = (this.y - this.radius - this.stroke) + "px";
+    this.canvas.nativeElement.style.left = (this.x - this.radius - this.stroke) + "px";
     this.canvas.nativeElement.style.position = "relative";
     
     //Clear
@@ -60,7 +85,7 @@ export class MonitoringOnlineComponent implements OnInit {
     //Draw main circle
     this.canvas2d.strokeStyle = this.color;
     this.canvas2d.beginPath();
-    this.canvas2d.arc(this.radius + this.stroke, this.radius + this.stroke, this.radius, this.startAngle, this.currentValue, false);
+    this.canvas2d.arc(this.radius + this.stroke, this.radius + this.stroke, this.radius, this.startAngle, degree, false);
     this.canvas2d.stroke();
   }
 
@@ -71,7 +96,15 @@ export class MonitoringOnlineComponent implements OnInit {
     {
       throw new Error('This browser does not support 2-dimensional canvas rendering contexts.');
     }
-    this.drawValue(1/3);
+
+    this.fetchClock = window.setInterval(() => {this.fetchData();}, this.fetchRate);
+    this.drawClock  = window.setInterval(() => {this.processBar();}, this.drawRate);
+  }
+
+  ngOnDestroy()
+  {
+    window.clearInterval(this.fetchClock);
+    window.clearInterval(this.drawClock);
   }
 
   }
