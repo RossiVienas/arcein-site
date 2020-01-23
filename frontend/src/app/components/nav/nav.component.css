@@ -90,6 +90,8 @@ nav
   background: #333;
   width: 100%;
   opacity: .7;
+  transition-property: height, background-color, opacity;
+  transition-duration: 0.3s;
 }
 nav ul
 {
@@ -104,7 +106,7 @@ nav a
   display: block;
   text-decoration: none;
   outline: none;
-  transition: .4s ease-in-out;
+  transition-duration: 0.01s;
 }
 .topmenu
 {
@@ -119,8 +121,8 @@ nav a
 .topmenu > li > a
 {
   font-family: 'Exo 2', sans-serif;
-  height: 70px;
-  line-height: 70px;
+  height: 60px;
+  line-height: 60px;
   padding: 0 30px;
   font-weight: bold;
   color: #fff;
@@ -131,7 +133,11 @@ nav a
   margin-left: 8px;
   font-family: FontAwesome;
 }
-.topmenu li a:hover { color: #E6855F; }
+.topmenu li a:hover 
+{ 
+  background-color: rgb(60,60,60);
+  color: #A63CD4;
+}
 .submenu
 {
   border: 2px solid #003559;
@@ -143,7 +149,7 @@ nav a
   width: 150px;
   transform: perspective(600px) rotateX(-90deg);
   transform-origin: 0% 0%;
-  transition: .6s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 .topmenu > li:hover .submenu

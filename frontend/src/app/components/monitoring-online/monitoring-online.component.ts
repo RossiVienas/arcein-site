@@ -28,12 +28,16 @@ export class MonitoringOnlineComponent implements OnInit, OnDestroy {
   private drawClock   : number;
   private targetValue : number = 0; 
 
+  private foo : boolean = true;
+
   constructor() {}
 
   private fetchData() : void
   {
     //Fake request
-    this.targetValue = Math.random();
+    //this.targetValue = Math.random();
+    if(this.foo) {this.targetValue = 0.75; this.foo = false;}
+    else{this.targetValue = 0.0; this.foo = true;} 
   }
 
   private updateValue() : void
