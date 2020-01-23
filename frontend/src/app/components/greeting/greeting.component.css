@@ -2,6 +2,11 @@
 {
   background-image: url("src/assets/img/greeting.png");
   background-size: 110%;
+
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+
   width: 100%;
   height: 100vh;
 }
