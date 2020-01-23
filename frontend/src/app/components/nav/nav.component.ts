@@ -13,8 +13,27 @@ export class NavComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() 
+  ngOnInit()
   {
+
+    // Handlers
+    this.navBar();
+
+
+    // window.addEventListener('scroll', () =>
+    // {
+    //   if(pageYOffset < document.documentElement.clientHeight * 1.0 - 50)
+    //     if(!this.isHovered) this.nav.nativeElement.style.opacity = "0.7";
+    //   else this.nav.nativeElement.style.opacity = "1.0";
+    // });
+  }
+
+  // ===-- Event handlers --===
+
+  // Navigation bar
+  private navBar() {
+
+    // Mouse over - opacity change
     this.nav.nativeElement.onmouseover = () =>
     {
       this.isHovered = true;
@@ -25,21 +44,8 @@ export class NavComponent implements OnInit {
     {
       this.isHovered = false;
       if(pageYOffset < document.documentElement.clientHeight * 1.0 - 50)
-      {
         this.nav.nativeElement.style.opacity = "0.7";
-      }
     }
-
-    window.addEventListener('scroll', () => 
-    {
-      
-      if(pageYOffset < document.documentElement.clientHeight * 1.0 - 50)
-      {
-        if(!this.isHovered) this.nav.nativeElement.style.opacity = "0.7";
-      }
-      else this.nav.nativeElement.style.opacity = "1.0";
-      
-    });
   }
 
 }
