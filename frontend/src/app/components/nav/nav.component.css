@@ -86,8 +86,9 @@
 
 nav
 {
+  border: 1px solid #1f1f1f;
   position: fixed;
-  background: #333;
+  background: #2c2c2c;
   width: 100%;
   opacity: .7;
   transition-property: height, background-color, opacity;
@@ -111,7 +112,7 @@ nav a
 .topmenu
 {
   backface-visibility: hidden;
-  background: #333;
+  background: #2c2c2c;
 }
 .topmenu > li
 {
@@ -120,13 +121,18 @@ nav a
 }
 .topmenu > li > a
 {
+  border: 1px solid #1f1f1f;
   font-family: 'Exo 2', sans-serif;
-  height: 60px;
-  line-height: 60px;
+  height: 50px;
+  line-height: 50px;
   padding: 0 30px;
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
+  font-size: 20px;
+  opacity: 1.0;
+  text-shadow: #A63CD4 0px 0px 10px;
+  z-index: 1;
 }
 .down:after
 {
@@ -135,20 +141,20 @@ nav a
 }
 .topmenu li a:hover 
 { 
-  background-color: rgb(60,60,60);
-  color: #A63CD4;
+  background-color: #333;
+  color: #D636C9;
 }
 .submenu
 {
-  border: 2px solid #003559;
+  border: 0px solid #003559;
   position: absolute;
-  left: 0;
+  left: 0 px;
   visibility: hidden;
-  opacity: 0;
   z-index: 5;
   width: 150px;
-  transform: perspective(600px) rotateX(-90deg);
-  transform-origin: 0% 0%;
+  opacity: 0.2;
+  transition-property: background-color;
+  background-color: rgb(80, 80, 80);
   transition: .3s ease-in-out;
 }
 
@@ -156,14 +162,22 @@ nav a
 {
   visibility: visible;
   opacity: 1;
-  transform: perspective(600px) rotateX(0deg);
+  transform: perspective(0px) translateY(0);
 }
 
 .submenu li a
 {
-  color: #7f7f7f;
-  font-size: 13px;
+  border: 1px solid #222222;;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 16px;
   line-height: 36px;
   padding: 0 25px;
   font-family: 'Kurale', serif;
+  font-weight: bold;
+}
+
+.submenu li a:hover
+{
+  background-color: rgb(60,60,60);
 }

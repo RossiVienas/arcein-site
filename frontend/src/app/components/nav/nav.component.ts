@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
     this.nav.nativeElement.onmouseleave = () =>
     {
       this.isHovered = false;
-      if(pageYOffset < document.documentElement.clientHeight * 1.0 - 60)
+      if(pageYOffset < document.documentElement.clientHeight * 1.0 - 50)
       {
         this.nav.nativeElement.style.opacity = "0.7";
       }
@@ -33,7 +33,7 @@ export class NavComponent implements OnInit {
     window.addEventListener('scroll', () => 
     {
       
-      if(pageYOffset < document.documentElement.clientHeight * 1.0 - 60)
+      if(pageYOffset < document.documentElement.clientHeight * 1.0 - 50)
       {
         if(!this.isHovered) this.nav.nativeElement.style.opacity = "0.7";
       }
