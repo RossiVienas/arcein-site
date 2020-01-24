@@ -2,5 +2,18 @@
 {
   width: 100%;
   height: 100vh;
-  background: #454545;
+  background: #32353b;
+}
+
+.newsblock
+{
+  background: #464a53;
+  color: rgb(200, 208, 211);
+  width: 900px;
+  height: 600px;
+  z-index: 0;
+  position: relative;
+  top: calc(50vh - 300px);
+  left: calc(50vw - 450px);
+  border: 1px groove rgb(107, 118, 122);
 }

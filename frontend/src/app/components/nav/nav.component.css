@@ -17,7 +17,7 @@ nav
   border: 1px solid #1f1f1f;
   position: fixed;
   top: -1px;
-  background: #2c2c2c;
+  background: #27292e;
   width: 100%;
   opacity: .7;
   transition-property: height, background-color, opacity;
@@ -44,7 +44,7 @@ nav a
 .topmenu
 {
   backface-visibility: hidden;
-  background: #2c2c2c;
+  background: #27292e;
   z-index: 10;
 }
 .topmenu > li
@@ -55,7 +55,6 @@ nav a
 }
 .topmenu > li > a
 {
-  
   font-family: 'Exo 2', sans-serif;
   height: 50px;
   line-height: 50px;
@@ -65,7 +64,8 @@ nav a
   text-transform: uppercase;
   font-size: 20px;
   opacity: 1.0;
-  text-shadow: #A63CD4 0px 0px 10px;
+  text-shadow: rgb(139, 139, 139) 0px 0px 3px, 
+    #000 0.5px 0px 1px, #000 0px 0.5px 1px, #000 0px -0.5px 1px, #000 -0.5px 0px 1px;
   z-index: 10;
 }
 .down:after
@@ -77,7 +77,10 @@ nav a
 .topmenu li a:hover
 {
   background-color: #333;
-  color: #D636C9;
+  text-shadow: #A63CD4 0px 0px 1px, 
+    #000 -1px 0px 1px, #000 1px 0px 1px, #000 0px 1px 1px, #000 0px -1px 1px,
+    #000 -1px 0px 2px, #000 1px 0px 2px, #000 0px 1px 2px, #000 0px -1px 2px;
+  color: rgb(179, 33, 166);
   z-index: 10;
 }
 
@@ -107,8 +110,11 @@ nav a
 .submenu li a
 {
   border: 1px solid #222222;;
-  background-color: #2c2c2c;
+  background-color: #27292e;
   color: #ffffff;
+  text-shadow: 
+    #000 -1px 0px 1px, #000 1px 0px 1px, #000 0px 1px 1px, #000 0px -1px 1px,
+    #000 -1px 0px 2px, #000 1px 0px 2px, #000 0px 1px 2px, #000 0px -1px 2px;
   font-size: 16px;
   line-height: 36px;
   padding: 0 25px;
