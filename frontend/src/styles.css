@@ -3,3 +3,12 @@
 {
   margin: 0;
 }
+
+body::-webkit-scrollbar 
+{
+  width: 0px;
+}
+body 
+{
+  -ms-overflow-style: none;
+}
