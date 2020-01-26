@@ -13,9 +13,19 @@ import {Routes, RouterModule} from "@angular/router";
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IndexComponent } from './pages/index/index.component';
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
+// import { DonatsComponent } from './pages/donate/donats.component';
+import { PrivateOfficeComponent } from './pages/private-office/private-office.component';
+import { StartGameComponent } from './pages/start-game/start-game.component';
+import { DonateComponent } from './pages/donate/donate.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent},
+  { path: 'Donate', component: DonateComponent},
+  { path: 'News', component: NewsComponent},
+  { path: 'StartGame', component: StartGameComponent},
+  { path: 'PrivateOffice', component: PrivateOfficeComponent},
+  { path: 'About', component: AboutComponent},
   { path: '**', component: NotFoundComponent}
 ];
 
@@ -31,6 +41,10 @@ const appRoutes: Routes = [
     NotFoundComponent,
     IndexComponent,
     SignUpComponent,
+    PrivateOfficeComponent,
+    StartGameComponent,
+    DonateComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

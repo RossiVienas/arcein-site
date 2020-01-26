@@ -5,7 +5,6 @@ import {NavComponent} from "../nav/nav.component";
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  // providers: [NavService]
 })
 export class SignUpComponent implements OnInit {
   visibleSingUp: boolean = false;
