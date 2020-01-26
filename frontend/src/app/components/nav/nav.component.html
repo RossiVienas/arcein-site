@@ -21,10 +21,12 @@
 
       <li><a href="">Донат</a></li>
 
-      <li><a href="">Личный кабинет</a></li>
+      <li><a href="#" (click)="toggleVisibleSignUp()">Личный кабинет</a></li>
     </ul>
   </div>
 </nav>
+
+<app-sign-up *ngIf="visibleSignUp"></app-sign-up>
 
 
 

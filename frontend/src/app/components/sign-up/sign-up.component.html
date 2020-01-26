@@ -4,9 +4,9 @@
 
 
 <!--Sign Form-->
-<div class="content">
+<div class="content" *ngIf="!visibleSingUp">
   <!--Blur block-->
-  <div class="blurBlock"></div>
+  <div class="blurBlock" (click)="toggleVisibleSignUp()"></div>
 
   <div class="container">
     <div class="row">

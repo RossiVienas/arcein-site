@@ -1,17 +1,23 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
+
 @Component
 ({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
-export class NavComponent implements OnInit 
+export class NavComponent implements OnInit
 {
 
   @ViewChild('nav', {static: true})
   private nav : ElementRef<HTMLUListElement>;
   private isHovered : boolean = false;
+
+  // public visibleSignUp: NavService = NavService.getVisibleSingUp();
+  public visibleSignUp: boolean = false;
+
+
 
   constructor() { }
 
@@ -23,8 +29,13 @@ export class NavComponent implements OnInit
 
   }
 
+  public toggleVisibleSignUp() {
+    this.visibleSignUp = !this.visibleSignUp;
+  }
+
+
   // ===-- Event handlers --===
-  private initHandlers() 
+  private initHandlers()
   {
     this.nav.nativeElement.onmouseover = () =>
     {
@@ -41,15 +52,15 @@ export class NavComponent implements OnInit
       }
     }
 
-    window.addEventListener('scroll', () => 
+    window.addEventListener('scroll', () =>
     {
-      
+
       if(pageYOffset < document.documentElement.clientHeight - 50)
       {
         if(!this.isHovered) this.nav.nativeElement.style.opacity = "0.7";
       }
       else this.nav.nativeElement.style.opacity = "1.0";
-      
+
     });
   }
 

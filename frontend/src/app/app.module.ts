@@ -12,6 +12,7 @@ import { MonitoringOnlineComponent } from './components/monitoring-online/monito
 import {Routes, RouterModule} from "@angular/router";
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IndexComponent } from './pages/index/index.component';
+import {SignUpComponent} from "./components/sign-up/sign-up.component";
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent},
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     MonitoringOnlineComponent,
     NotFoundComponent,
     IndexComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
